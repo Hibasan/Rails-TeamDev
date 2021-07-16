@@ -33,12 +33,8 @@
             <a href="#" class="nav-link">
               <i class="fa fa-circle-o nav-icon"></i>
               <p>
-
                 <%= agenda.title %>
-                <%= link_to '削除', agenda_path(agenda.id),method: :delete ,data: { confirm: '削除します' } %>
-                
                 <i class="right fa fa-angle-left"></i>
-
               </p>
             </a>
             <ul class="nav nav-treeview" style="display: block;">
@@ -53,6 +49,9 @@
                 <%= link_to new_agenda_article_path(agenda), class: 'nav-link' do %>
                   <p>+ <%= I18n.t('views.messages.create_article') %></p>
                 <% end %>
+              </li>
+              <li>
+                  <%=link_to '- アジェンダ削除', agenda_path(agenda.id),class: 'nav-link',method: :delete ,data: { confirm: '削除します' }%>
               </li>
             </ul>
           </li>
