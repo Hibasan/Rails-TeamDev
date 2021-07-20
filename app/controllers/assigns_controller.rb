@@ -17,11 +17,11 @@ class AssignsController < ApplicationController
   def destroy
     assign = Assign.find(params[:id])
     destroy_message = assign_destroy(assign, assign.user)
-
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
 
   private
+
   def assign_params
     params[:email]
   end
@@ -62,7 +62,7 @@ class AssignsController < ApplicationController
     change_keep_team(assigned_user, another_team) if assigned_user.keep_team_id == assign.team_id
   end
 
-  def find_team(team_id)
-    Team.friendly.find(params[:team_id])
+  def find_team(team)
+    Team.friendly.find(team)
   end
 end
